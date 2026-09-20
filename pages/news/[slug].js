@@ -53,7 +53,7 @@ const NewsDetails = ({ otherNews, news }) => {
             <h1 className='recent-post'>Recent Posts</h1>
             <div className='other-posts'>
               {otherNews.map((item) => (
-                <Link href={`/news/${item.slug.current}`}>
+                <Link key={item.slug.current} href={`/news/${item.slug.current}`}>
                   <div className='post-link'>
                     <MdOutlineKeyboardArrowRight className='other-post-arrow' />
                     <p>{item.title}</p>

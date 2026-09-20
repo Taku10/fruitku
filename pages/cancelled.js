@@ -13,7 +13,7 @@ const Cancel = () => {
           <h1>Order Cancelled</h1>
         </div>
         <p className='cancel-message'>
-          We've got some bad news. Your order has been cancelled. We couldn't process your online payment
+          We&apos;ve got some bad news. Your order has been cancelled. We couldn&apos;t process your online payment
         </p>
         <p className='questions'> If you have any questions. Please email <span>orders@fruitku.com</span></p>
         <Link href='/shop'>

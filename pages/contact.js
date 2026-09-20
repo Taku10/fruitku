@@ -14,9 +14,9 @@ const Contact = () => {
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-  const service_id = process.env.EMAIL_SERVICE_ID
-  const template_id = process.env.EMAIL_TEMPLATE_ID
-  const public_key = process.env.EMAIL_PUBLIC_KEY 
+  const service_id = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID
+  const template_id = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID
+  const public_key = process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY
 
 
   const form = useRef();

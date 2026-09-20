@@ -9,9 +9,9 @@ const Brands = () => {
     <div className='brands-container'>
          <Slider className='brand-slide desktop-brand' touchMove={true} easing="linear" arrows={false}  slidesToShow={4}  autoplay={true} autoplaySpeed={3000}>
 
-            {brand_data.map((item, index)=>(
-                <div  className='brand' >
-                    <img src={item.src} alt={item} key={index}/>
+            {brand_data.map((item)=>(
+                <div className='brand' key={item.src}>
+                    <img src={item.src} alt={item}/>
                 </div>
             ))
             
@@ -25,7 +25,7 @@ const Brands = () => {
          <Slider className='brand-slide laptop-brand' arrows={false}  slidesToShow={3}  autoplay={true} autoplaySpeed={3000}>
 
             {brand_data.map((item)=>(
-                <div className='brand'>
+                <div className='brand' key={item.src}>
                     <img src={item.src} alt={item} />
                 </div>
             ))
@@ -39,7 +39,7 @@ const Brands = () => {
          <Slider className='brand-slide tablet-brand' arrows={false}  slidesToShow={2}  autoplay={true} autoplaySpeed={3000}>
 
             {brand_data.map((item)=>(
-                <div className='brand'>
+                <div className='brand' key={item.src}>
                     <img src={item.src} alt={item} />
                 </div>
             ))
@@ -53,7 +53,7 @@ const Brands = () => {
          <Slider className='brand-slide phone-brand' arrows={false}  slidesToShow={1}  autoplay={true} autoplaySpeed={3000}>
 
             {brand_data.map((item)=>(
-                <div className='brand'>
+                <div className='brand' key={item.src}>
                     <img src={item.src} alt={item} />
                 </div>
             ))
