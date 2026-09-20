@@ -1,10 +1,9 @@
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY)
-
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
+        const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
         const params ={
             submit_type: 'pay',
             mode: 'payment',

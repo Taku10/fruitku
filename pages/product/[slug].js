@@ -65,16 +65,16 @@ const ProductDetails = ({ relatedProducts, products }) => {
                         <div className='share'>
                             <h1>Share:</h1>
                             <div className='social-icons'>
-                                <a target='_blank' href='https://www.facebook.com'>
+                                <a target='_blank' rel='noopener noreferrer' href='https://www.facebook.com'>
                                     <GrFacebookOption className='icon' />
                                 </a>
-                                <a target='_blank' href='https://www.twitter.com'>
+                                <a target='_blank' rel='noopener noreferrer' href='https://www.twitter.com'>
                                     <AiOutlineTwitter className='icon' />
                                 </a>
-                                <a target='_blank' href='https://www.google.com'>
+                                <a target='_blank' rel='noopener noreferrer' href='https://www.google.com'>
                                     <AiOutlineGooglePlus className='icon' />
                                 </a>
-                                <a target='_blank' href='https://www.linkedin.com'>
+                                <a target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com'>
                                     <AiFillLinkedin className='icon' />
                                 </a>
                             </div>
