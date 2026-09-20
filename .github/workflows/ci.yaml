@@ -38,7 +38,7 @@ jobs:
       NEXT_PUBLIC_EMAIL_TEMPLATE_ID: ${{ vars.NEXT_PUBLIC_EMAIL_TEMPLATE_ID }}
       NEXT_PUBLIC_EMAIL_PUBLIC_KEY: ${{ vars.NEXT_PUBLIC_EMAIL_PUBLIC_KEY }}
       # Only used to satisfy Compose's runtime configuration validation.
-      STRIPE_SECRET_KEY: ci-placeholder-not-a-real-key
+      STRIPE_SECRET_KEY: ${{ secret.STRIPE_SECRET_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
