@@ -72,24 +72,26 @@ See [k3s deployment instructions](k8s/README.md) for the manifests targeting
 
 ## GitHub Actions
 
-[CI workflow](.github/workflows/ci.yaml) builds and smoke-tests
+[CI workflow](.github/workflows/ci.yaml) builds and lints
 pull requests targeting `main`. Pushes to `main` and manual runs on `main`
-publish the exact tested image to `ghcr.io/taku10/fruitku`. Unique tags include
+publish the built image to `ghcr.io/taku10/fruitku`. Unique tags include
 commit SHA, run ID, and attempt so reruns cannot overwrite earlier releases.
 The workflow summary records the registry digest for deployment.
 
 Before the first run, add the `NEXT_PUBLIC_*` values from `.env.example` under
 GitHub **Settings → Secrets and variables → Actions → Variables**. Use nonprod
 service configuration initially. These values are public browser configuration;
-never put Stripe's secret key or a Sanity token into build variables. CI uses a
-placeholder runtime Stripe key and does not exercise real payment/auth flows.
+never put Stripe's secret key or a Sanity token into build variables. CI needs no runtime Stripe key and does not exercise real payment/auth flows.
 The build still needs access to the hosted Sanity dataset for static generation.
 
 Publishing uses the automatic `GITHUB_TOKEN` with package-write permission;
 no personal token or cluster kubeconfig is required. Ensure repository policies
-allow package publishing. PRs never log in or publish. Configure `Build and test` as
+allow package publishing. PRs never log in or publish. Configure `Build container` as
 a required branch-protection check. Dependabot maintains action and base-image
-pins. The smoke test checks pages, assets, non-root execution, and excluded files.
+pins. Every workflow step uses an official GitHub or Docker action, pinned to
+a commit. Buildx caches layers between runs. CI does not run the container smoke
+test or render Kubernetes manifests; `scripts/container-smoke.cjs` remains
+available for local container validation.
 
 This workflow publishes images; it does not deploy to the cluster. To promote a
 successful build, set `newName: ghcr.io/taku10/fruitku` in
