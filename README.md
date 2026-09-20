@@ -65,11 +65,6 @@ before an internet-facing production release.
 References: [Next.js container guide](https://docs.docker.com/guides/nextjs/)
 and [Next.js standalone output](https://nextjs.org/docs/pages/api-reference/config/next-config-js/output).
 
-## k3s
-
-See [k3s deployment instructions](k8s/README.md) for the manifests targeting
-`nonprod`, image import, runtime Secret setup, and internal service access.
-
 ## GitHub Actions
 
 [CI workflow](.github/workflows/ci.yaml) builds and lints
@@ -93,13 +88,7 @@ a commit. Buildx caches layers between runs. CI does not run the container smoke
 test or render Kubernetes manifests; `scripts/container-smoke.cjs` remains
 available for local container validation.
 
-This workflow publishes images; it does not deploy to the cluster. To promote a
-successful build, set `newName: ghcr.io/taku10/fruitku` in
-`k8s/kustomization.yaml`, replace `newTag` with `digest: sha256:...` from the run
-summary, and follow the k3s instructions. For a private GHCR package, configure
-an imagePullSecret in `nonprod` and reference it in the pod spec. For GitOps,
-commit that image change in the platform repository once Fruitku has been
-registered through its Argo CD bootstrap. Production needs its own browser
-configuration build if it uses different Firebase/Stripe projects.
+Published images are available at `ghcr.io/taku10/fruitku`. Use the image tag
+or digest from the workflow build summary with your chosen deployment system.
 
 Reference: [GitHub's image publishing guidance](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images).
