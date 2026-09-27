@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:25-bookworm-slim@sha256:81db02c4b671288a03915da9534dbd54f96d0e7c24d80ccc54f5b36b2e684370 AS base
+FROM node:26-bookworm-slim@sha256:662933cf47f013bc8e4beb31a6116448427a82057ba7c42c97e4c5ba766504c2 AS base
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 
